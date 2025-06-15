@@ -32,9 +32,8 @@ const Lobby = () => {
     <div className="h-screen gap-4 text-center bg-[var(--color-two)]">
       <div className='absolute h-[95%] w-4/5 right-10 bottom-0 flex flex-col justify-end items-start'>
         <h1 className="absoute  text-5xl font-bold mb-4 font-toccoBold text-[var(--text-color-two)]">शतरंज  Lobby</h1>
-        <div className="h-[80%] w-full rounded-t-2xl flex flex-col items-start justify-center gap-10 text-center bg-[var(--primary-color)] pl-7">
-          
-          <button onClick={handleCreateGame} className="px-4 py-2 w-[310px] h-[50px] text-start hover:border-4 hover:border-black rounded-xl font-arvoBold text-xl shadow-black hover:shadow-md">
+        <div className="h-[80%] w-full rounded-t-2xl flex flex-col items-start justify-center gap-10 text-center bg-[var(--primary-color)] md:pl-7 px-6">
+          <button onClick={handleCreateGame} className="sm:px-4 sm:py-2 sm:w-[310px] h-[50px] sm:text-start sm:hover:border-4 hover:border-2 hover:border-black rounded-xl font-arvoBold sm:text-xl shadow-black hover:shadow-md text-base text-center w-11/12">
             Create Multiplayer Game
           </button>
 
@@ -46,11 +45,11 @@ const Lobby = () => {
               placeholder="Enter Game ID"
             />
 
-            <button onClick={handleJoinGame} className="px-4 py-2 w-[310px] h-[50px] hover:border-4 hover:border-black rounded-xl font-arvoBold text-xl shadow-black hover:shadow-md text-start">
+            <button onClick={handleJoinGame} className="sm:px-4 sm:py-2 sm:w-[310px] h-[50px] sm:text-start sm:hover:border-4 hover:border-2 hover:border-black rounded-xl font-arvoBold sm:text-xl shadow-black hover:shadow-md text-base text-center w-11/12">
               Join Multiplayer Game
             </button>
           </div>
-          <button onClick={handlePlayVsAI} className="px-4 py-2 w-[310px] h-[50px] hover:border-4 hover:border-black rounded-xl font-arvoBold text-xl shadow-black hover:shadow-md text-start">
+          <button onClick={handlePlayVsAI} className="sm:px-4 sm:py-2 sm:w-[310px] h-[50px] sm:text-start sm:hover:border-4 hover:border-2 hover:border-black rounded-xl font-arvoBold sm:text-xl shadow-black hover:shadow-md text-base text-center w-11/12">
             Play vs AI
           </button>
         </div>

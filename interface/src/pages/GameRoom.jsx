@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Chess } from 'chess.js';
 import { Chessboard } from 'react-chessboard';
 import { useParams } from 'react-router-dom';
+import { useResizeDetector } from 'react-resize-detector';
 import socket from '../socket';
 
 const GameRoom = ({ vsAI = false }) => {
@@ -14,6 +15,7 @@ const GameRoom = ({ vsAI = false }) => {
   const [gameOver, setGameOver] = useState(false);
   const [gameResult, setGameResult] = useState('');
   const [aiSuggestion, setAiSuggestion] = useState(null);
+  const {width,ref}=useResizeDetector();
   const [assistMode, setAssistMode] = useState(false);
 
   useEffect(() => {
@@ -124,21 +126,9 @@ const GameRoom = ({ vsAI = false }) => {
   };
 
   return (
-    <div className="flex items-center justify-around gap-4 h-screen">
-      <div className='h-full w-1/2 flex items-center justify-center'>
-        <div >
-          <Chessboard
-            position={fen}
-            onPieceDrop={onDrop}
-            boardOrientation={color}
-            arePiecesDraggable={!gameOver && chessRef.current.turn() === color[0]}
-            animationDuration={200}
-            boardWidth={400}
-            // className="!w-[400px] !max-w-none"
-          />
-        </div>
-      </div>
-      <div className='flex flex-col justify-center gap-10 items-center w-1/2 h-full'>
+    <div className="flex flex-col md:flex-row justify-center items-center md:items-center md:justify-around gap-4 h-screen">
+      
+      <div className='flex flex-col justify-center gap-10 items-center w-full md:w-1/2 h-full'>
         <h2 className="text-xl font-bold">Game ID: {gameId}</h2>
         {!vsAI && (
           <p className={opponentConnected ? 'text-green-600' : 'text-yellow-500'}>
@@ -165,6 +155,19 @@ const GameRoom = ({ vsAI = false }) => {
             Suggested: {aiSuggestion.from} → {aiSuggestion.to}
           </p>
         )}
+      </div>
+
+      <div ref={ref} className='h-full w-full md:w-1/2 flex items-center justify-center px-2'>
+        <div >
+          {width && <Chessboard
+            position={fen}
+            onPieceDrop={onDrop}
+            boardOrientation={color}
+            arePiecesDraggable={!gameOver && chessRef.current.turn() === color[0]}
+            animationDuration={200}
+            boardWidth={Math.min(width-30,400)}
+          />}
+        </div>
       </div>
     </div>
   );
