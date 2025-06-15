@@ -1,3 +1,53 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@font-face {
+  font-family: 'Gravitas One';
+  src: url('/fonts/GravitasOne-Regular.ttf')format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:'Caprasimo';
+  src:url('/fonts/Caprasimo-Regular.ttf')format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:'LilitaOne';
+  src:url('/fonts/LilitaOne-Regular.ttf')format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:'Tocco-Bold';
+  src:url('/fonts/Tocco-Bold.ttf')format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:'Arvo-Bold';
+  src:url('/fonts/Arvo-Bold.ttf')format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme{
+    --font-gravitas:"Gravitas One","sans-serif";
+    --font-caprasimo:"Caprasimo","sans-serif";
+    --font-lilita:"LilitaOne",'sans-serif';
+    --font-toccoBold:"Tocco-Bold",'sans-sreif';
+    --font-arvoBold:"Arvo-Bold",'sans-sreif';
+}
+
+@import "tailwindcss";
+
+:root{
+    --primary-color:#e5dccd;
+    --color-two:#d1794c;
+    --color-three:#1f1f1e;
+    --color-four:#ad9b70;
+    --text-color-one:#1c1d1c;
+    --text-color-two:#f6e6d5;
+}
