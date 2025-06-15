@@ -126,7 +126,7 @@ const GameRoom = ({ vsAI = false }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center md:items-center md:justify-around gap-4 h-screen">
+    <div className="flex flex-col md:flex-row justify-center items-center md:items-center md:justify-around gap-4 h-screen bg-[var(--color-two)]">
       
       <div className='flex flex-col justify-center gap-10 items-center w-full md:w-1/2 h-full'>
         <h2 className="text-xl font-bold">Game ID: {gameId}</h2>
@@ -158,7 +158,7 @@ const GameRoom = ({ vsAI = false }) => {
       </div>
 
       <div ref={ref} className='h-full w-full md:w-1/2 flex items-center justify-center px-2'>
-        <div >
+        <div className='border-4 border-black shadow-2xl'>
           {width && <Chessboard
             position={fen}
             onPieceDrop={onDrop}
