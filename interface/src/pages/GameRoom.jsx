@@ -62,7 +62,7 @@ const GameRoom = ({ vsAI = false }) => {
   const makeAIMove = async () => {
     if (gameOver) return;
 
-    const res = await fetch('http://localhost:5000/suggest-move', {
+    const res = await fetch('https://shatranj-agentic-ai-for-chess.onrender.com/suggest-move', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ fen: chessRef.current.fen() }),
@@ -116,7 +116,7 @@ const GameRoom = ({ vsAI = false }) => {
   };
 
   const handleGetAiMove = async () => {
-    const res = await fetch('http://localhost:5000/suggest-move', {
+    const res = await fetch('https://shatranj-agentic-ai-for-chess.onrender.com/suggest-move', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ fen }),

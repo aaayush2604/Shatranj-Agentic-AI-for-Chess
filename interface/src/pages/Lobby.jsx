@@ -8,14 +8,14 @@ const Lobby = () => {
   const navigate = useNavigate();
 
   const handleCreateGame = async () => {
-    const res = await axios.post('http://localhost:5000/create-game', {});
+    const res = await axios.post('https://shatranj-agentic-ai-for-chess.onrender.com/create-game', {});
     socket.emit('join-room', { gameId: res.data.gameId });
     navigate(`/game/${res.data.gameId}`);
   };
 
   const handleJoinGame = async () => {
     try {
-      await axios.post('http://localhost:5000/join-game', { gameId });
+      await axios.post('https://shatranj-agentic-ai-for-chess.onrender.com/join-game', { gameId });
       socket.emit('join-room', { gameId });
       navigate(`/game/${gameId}`);
     } catch (err) {
@@ -24,7 +24,7 @@ const Lobby = () => {
   };
 
   const handlePlayVsAI = async () => {
-    const res = await axios.post('http://localhost:5000/create-game', {});
+    const res = await axios.post('https://shatranj-agentic-ai-for-chess.onrender.com', {});
     navigate(`/vs-ai/${res.data.gameId}`);
   };
 
