@@ -124,42 +124,48 @@ const GameRoom = ({ vsAI = false }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 mt-6">
-      <h2 className="text-xl font-bold">Game ID: {gameId}</h2>
-      {!vsAI && (
-        <p className={opponentConnected ? 'text-green-600' : 'text-yellow-500'}>
-          {opponentConnected ? 'Opponent connected!' : 'Waiting for opponent...'}
-        </p>
-      )}
-
-      {gameOver && (
-        <div className="text-lg font-semibold text-red-600">
-          {gameResult}
+    <div className="flex items-center justify-around gap-4 h-screen">
+      <div className='h-full w-1/2 flex items-center justify-center'>
+        <div >
+          <Chessboard
+            position={fen}
+            onPieceDrop={onDrop}
+            boardOrientation={color}
+            arePiecesDraggable={!gameOver && chessRef.current.turn() === color[0]}
+            animationDuration={200}
+            boardWidth={400}
+            // className="!w-[400px] !max-w-none"
+          />
         </div>
-      )}
+      </div>
+      <div className='flex flex-col justify-center gap-10 items-center w-1/2 h-full'>
+        <h2 className="text-xl font-bold">Game ID: {gameId}</h2>
+        {!vsAI && (
+          <p className={opponentConnected ? 'text-green-600' : 'text-yellow-500'}>
+            {opponentConnected ? 'Opponent connected!' : 'Waiting for opponent...'}
+          </p>
+        )}
 
-      <Chessboard
-        position={fen}
-        onPieceDrop={onDrop}
-        boardOrientation={color}
-        arePiecesDraggable={!gameOver && chessRef.current.turn() === color[0]}
-        animationDuration={200}
-        boardWidth={400}
-      />
+        {gameOver && (
+          <div className="text-lg font-semibold text-red-600">
+            {gameResult}
+          </div>
+        )}
 
-      {/* Suggest Move Button */}
-      <button
-        onClick={handleGetAiMove}
-        className="px-4 py-2 bg-blue-600 text-white rounded"
-      >
-        Suggest Move
-      </button>
+        {/* Suggest Move Button */}
+        <button
+          onClick={handleGetAiMove}
+          className="px-4 py-2 bg-blue-600 text-white rounded"
+        >
+          Suggest Move
+        </button>
 
-      {aiSuggestion && (
-        <p className="text-green-600">
-          Suggested: {aiSuggestion.from} → {aiSuggestion.to}
-        </p>
-      )}
+        {aiSuggestion && (
+          <p className="text-green-600">
+            Suggested: {aiSuggestion.from} → {aiSuggestion.to}
+          </p>
+        )}
+      </div>
     </div>
   );
 };

@@ -31,7 +31,7 @@ const Lobby = () => {
   return (
     <div className="h-screen gap-4 text-center bg-[var(--color-two)]">
       <div className='absolute h-[95%] w-4/5 right-10 bottom-0 flex flex-col justify-end items-start'>
-        <h1 className="absoute  text-5xl font-bold mb-4 font-toccoBold text-[var(--text-color-two)]">Chess Lobby</h1>
+        <h1 className="absoute  text-5xl font-bold mb-4 font-toccoBold text-[var(--text-color-two)]">शतरंज  Lobby</h1>
         <div className="h-[80%] w-full rounded-t-2xl flex flex-col items-start justify-center gap-10 text-center bg-[var(--primary-color)] pl-7">
           
           <button onClick={handleCreateGame} className="px-4 py-2 w-[310px] h-[50px] text-start hover:border-4 hover:border-black rounded-xl font-arvoBold text-xl shadow-black hover:shadow-md">
